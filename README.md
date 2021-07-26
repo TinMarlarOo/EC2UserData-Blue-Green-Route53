@@ -121,6 +121,7 @@ $ aws route53 change-resource-record-sets --generate-cli-skeleton
 ```
 
 ### ii) Create a simple resource record set in Route53 using AWS CLI
+[AWS resource Route53 Pages](https://aws.amazon.com/premiumsupport/knowledge-center/simple-resource-record-route53-cli/)
 
 ### iii) app-v1.json
 ```json
@@ -166,7 +167,7 @@ $ aws route53 change-resource-record-sets --generate-cli-skeleton
 }
 ```
 ### iv)change to v1 by running the following command
-[AWS resource Route53 Pages](https://aws.amazon.com/premiumsupport/knowledge-center/simple-resource-record-route53-cli/)
+
 
 ```bash
 $ aws route53 change-resource-record-sets --hosted-zone-id Z0671885NGJVMC1JAYL2 --change-batch file://app-v1.json
