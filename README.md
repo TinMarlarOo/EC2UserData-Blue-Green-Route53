@@ -165,7 +165,7 @@ request.
 }
 ```
 ### iv)change to v1 by running the following command
-[AWS Route53 Pages](https://aws.amazon.com/premiumsupport/knowledge-center/simple-resource-record-route53-cli/)
+-[AWS Route53 Pages](https://aws.amazon.com/premiumsupport/knowledge-center/simple-resource-record-route53-cli/)
 
 ```bash
 $ aws route53 change-resource-record-sets --hosted-zone-id Z0671885NGJVMC1JAYL2 --change-batch file://app-v1.json
