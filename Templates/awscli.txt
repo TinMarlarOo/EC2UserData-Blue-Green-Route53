@@ -1,0 +1,16 @@
+aws cloudformation create-stack --stack-name sgpvpc --template-body file://vpc.yaml 
+--parameters 
+ParameterKey='VPCCIDR',ParameterValue='192.168.0.0/16' 
+ParameterKey='PublicSubnet1CIDR',ParameterValue='192.168.1.0/24' 
+ParameterKey='PublicSubnet2CIDR',ParameterValue='192.168.2.0/24' 
+ParameterKey='PublicSubnet3CIDR',ParameterValue='192.168.3.0/24' 
+ParameterKey='RegionCode',ParameterValue='sgp' 
+ParameterKey='AZ1Code',ParameterValue='sgpaz1' 
+ParameterKey='AZ2Code',ParameterValue='sgpaz2' 
+ParameterKey='AZ3Code',ParameterValue='sgpaz3'
+
+aws cloudformation update-stack --stack-name sgpvpc --template-body file://vpc.yaml --parameters ParameterKey='PublicSubnet1CIDR',ParameterValue='192.168.1.0/24' ParameterKey='RegionCode',ParameterValue='sgp' ParameterKey='AZ1Code',ParameterValue='sgpaz1' ParameterKey='VPCCIDR',ParameterValue='192.168.0.0/16' ParameterKey='PublicSubnet2CIDR',ParameterValue='192.168.2.0/24' ParameterKey='AZ2Code',ParameterValue='sgpaz2' ParameterKey='PublicSubnet3CIDR',ParameterValue='192.168.3.0/24' ParameterKey='AZ3Code',ParameterValue='sgpaz3'
+
+
+
+aws cloudformation create-stack --stack-name sydvpc --template-body file://vpc.yaml --parameters ParameterKey='VPCCIDR',ParameterValue='172.16.0.0/16' ParameterKey='PublicSubnet1CIDR',ParameterValue='172.16.1.0/24' ParameterKey='PublicSubnet2CIDR',ParameterValue='172.16.2.0/24' ParameterKey='PublicSubnet3CIDR',ParameterValue='172.16.3.0/24' ParameterKey='RegionCode',ParameterValue='syd' ParameterKey='AZ1Code',ParameterValue='sydaz1' ParameterKey='AZ2Code',ParameterValue='sydaz2' ParameterKey='AZ3Code',ParameterValue='sydaz3' --region ap-southeast-2
