@@ -66,6 +66,7 @@ aws cloudformation create-stack --stack-name instancev2 --template-body file://p
 <br>
 
 ## 5. Create AWS CLI- Change-resource-record-sets
+[change-resource-record-sets](https://docs.aws.amazon.com/cli/latest/reference/route53/change-resource-record-sets.html)
 
 ### i) 
 - **CREATE** : Creates a resource record set that has the specified values.
@@ -78,7 +79,7 @@ request.
 ### ii)generate-cli-skeleton
 
 ```bash
-[sai@sais-MBP 9.ec2-userdata]$ aws route53 change-resource-record-sets --generate-cli-skeleton
+$ aws route53 change-resource-record-sets --generate-cli-skeleton
 {
     "HostedZoneId": "",
     "ChangeBatch": {
