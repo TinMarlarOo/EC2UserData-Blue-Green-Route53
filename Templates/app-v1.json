@@ -1,0 +1,18 @@
+{
+    "Comment": "UPSERT CNAME record to tinmaralroo.io blue v1 app",
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "app.mygentocloud.com",
+                "Type": "CNAME",
+                "TTL": 0,
+                "ResourceRecords": [
+                    {
+                        "Value": "ec2-xxxxx"
+                    }
+                ]
+            }
+        }
+    ]
+}

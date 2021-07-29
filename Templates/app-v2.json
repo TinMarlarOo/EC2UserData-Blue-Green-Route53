@@ -1,0 +1,18 @@
+{
+    "Comment": "UPSERT CNAME record to gritworks.io green v2 app",
+    "Changes": [
+        {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
+                "Name": "app.mygentocloud.com",
+                "Type": "CNAME",
+                "TTL": 0,
+                "ResourceRecords": [
+                    {
+                        "Value": "ec2-13-250-5-213.ap-southeast-1.compute.amazonaws.com"
+                    }
+                ]
+            }
+        }
+    ]
+}

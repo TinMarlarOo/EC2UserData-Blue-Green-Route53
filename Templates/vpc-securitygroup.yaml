@@ -9,6 +9,25 @@ Parameters:
       - sydvpc
       - tkovpc
 Resources: 
+  vpcCustomSecurityGroup1:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: 'mygentocloud-master vpc Custom Security Group'
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: '0.0.0.0/0'
+        - IpProtocol: icmp
+          FromPort: -1
+          ToPort: -1
+          CidrIp: '0.0.0.0/0'
+      VpcId:
+        Fn::ImportValue:
+          !Sub ${vpcStackName}-VPCID
+      Tags:
+        - Key: 'Name'
+          Value: 'mygentocloud Master VPC Security Group'
   vpcCustomSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -19,13 +38,9 @@ Resources:
           ToPort: 22
           CidrIp: '0.0.0.0/0'
         - IpProtocol: tcp
-          FromPort: 443
-          ToPort: 443
-          CidrIp: '0.0.0.0/0'
-        - IpProtocol: tcp
           FromPort: 80
           ToPort: 80
-          CidrIp: '0.0.0.0/0'
+          SourceSecurityGroupId: !Ref vpcCustomSecurityGroup1
         - IpProtocol: icmp
           FromPort: -1
           ToPort: -1
@@ -44,3 +59,10 @@ Outputs:
     Export:
       Name:
         !Sub ${AWS::StackName}-vpcSecurityGroupID # the name of infra-stack export
+  vpcCustomSecurityGroup1ID: #logicalID
+    Description: 'mygentocloud Master VPC SecurityGroup ID'
+    Value:
+      !Ref vpcCustomSecurityGroup1 # the vaule of export is here
+    Export:
+      Name:
+        !Sub ${AWS::StackName}-vpcSecurityGroup1ID # the name of infra-stack export

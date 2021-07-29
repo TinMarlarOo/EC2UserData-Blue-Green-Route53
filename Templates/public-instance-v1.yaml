@@ -26,7 +26,7 @@ Resources:
       SubnetId:
         Fn::ImportValue:
           !Sub ${vpcStackName}-publicSubnet1ID
-      KeyName: gritworks-master-sg
+      KeyName: ML-master-sg
       Tags: 
         - Key: "Name"
           Value:
@@ -43,7 +43,7 @@ Resources:
           sudo apt-get update -y
           sudo apt-get install nginx -y
           sudo chmod 666 /var/www/html/index.html
-          sudo echo "<html><h1 align='center'><p style='color:blue'>g r i t w o r k s . io - app v1</p></h1></html>" > /var/www/html/index.html
+          sudo echo "<html><h1 align='center'><p style='color:blue'>m y g e n t o c l o u d. c o m - app v1</p></h1></html>" > /var/www/html/index.html
 Outputs:
   publicInstanceDNS:
     Description: DNS Name of Public Instance

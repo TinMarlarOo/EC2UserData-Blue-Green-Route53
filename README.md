@@ -80,95 +80,20 @@ request.
 
 ```bash
 $ aws route53 change-resource-record-sets --generate-cli-skeleton
-{
-    "HostedZoneId": "",
-    "ChangeBatch": {
-        "Comment": "",
-        "Changes": [
-            {
-                "Action": "CREATE",
-                "ResourceRecordSet": {
-                    "Name": "",
-                    "Type": "A",
-                    "SetIdentifier": "",
-                    "Weight": 0,
-                    "Region": "us-east-2",
-                    "GeoLocation": {
-                        "ContinentCode": "",
-                        "CountryCode": "",
-                        "SubdivisionCode": ""
-                    },
-                    "Failover": "SECONDARY",
-                    "MultiValueAnswer": true,
-                    "TTL": 0,
-                    "ResourceRecords": [
-                        {
-                            "Value": ""
-                        }
-                    ],
-                    "AliasTarget": {
-                        "HostedZoneId": "",
-                        "DNSName": "",
-                        "EvaluateTargetHealth": true
-                    },
-                    "HealthCheckId": "",
-                    "TrafficPolicyInstanceId": ""
-                }
-            }
-        ]
-    }
-}
 ```
+- [skeleton.json](./Templates/skeleton.json)
 
 ### ii) Create a simple resource record set in Route53 using AWS CLI
 [AWS resource Route53 Pages](https://aws.amazon.com/premiumsupport/knowledge-center/simple-resource-record-route53-cli/)
 
 ### iii) app-v1.json
-```json
-{
-      "Comment": "UPSERT CNAME record to gritworks.io blue v1 app",
-      "Changes": [
-          {
-              "Action": "UPSERT",
-              "ResourceRecordSet": {
-                  "Name": "www.gritworks.io",
-                  "Type": "CNAME",
-                  "TTL": 0,
-                  "ResourceRecords": [
-                      {
-                          "Value": "ec2-18-142-26-173.ap-southeast-1.compute.amazonaws.com"
-                      }
-                  ]
-              }
-          }
-      ]
-  }
-```
+- [app-v1.json](./Templates/vpc.app-v1.json)
+
 
 ### iii) app-v2.json
-```json
-{
-  "Comment": "UPSERT CNAME record to gritworks.io green v2 app",
-  "Changes": [
-      {
-          "Action": "UPSERT",
-          "ResourceRecordSet": {
-              "Name": "www.gritworks.io",
-              "Type": "CNAME",
-              "TTL": 0,
-              "ResourceRecords": [
-                  {
-                      "Value": "ec2-52-76-205-58.ap-southeast-1.compute.amazonaws.com"
-                  }
-              ]
-          }
-      }
-  ]
-}
-```
+- [app-v2.json](./Templates/vpc.app-v2.json)
+
 ### iv)change to v1 by running the following command
-
-
 ```bash
 $ aws route53 change-resource-record-sets --hosted-zone-id Z0671885NGJVMC1JAYL2 --change-batch file://app-v1.json
 {
@@ -176,7 +101,7 @@ $ aws route53 change-resource-record-sets --hosted-zone-id Z0671885NGJVMC1JAYL2 
         "Id": "/change/C09110163NBM7ABPCJNOY",
         "Status": "PENDING",
         "SubmittedAt": "2021-07-25T03:14:15.164000+00:00",
-        "Comment": "UPSERT CNAME record to gritworks.io blue v1 app"
+        "Comment": "UPSERT CNAME record to mygentocloud.com blue v1 app"
     }
 }
 ```
@@ -188,13 +113,9 @@ $ aws route53 get-change --id /change/C09110163NBM7ABPCJNOY
         "Id": "/change/C09110163NBM7ABPCJNOY",
         "Status": "INSYNC",
         "SubmittedAt": "2021-07-25T03:14:15.164000+00:00",
-        "Comment": "UPSERT CNAME record to gritworks.io blue v1 app"
+        "Comment": "UPSERT CNAME record to mygentocloud.com blue v1 app"
     }
 }
 ```
 
-<br>
 
-
-You may need to update image-id that availble on your different region.
-![header image](outputs-images/instance-imageid-err-01.png)
