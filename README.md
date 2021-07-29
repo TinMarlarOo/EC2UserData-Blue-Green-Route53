@@ -87,11 +87,11 @@ $ aws route53 change-resource-record-sets --generate-cli-skeleton
 [AWS resource Route53 Pages](https://aws.amazon.com/premiumsupport/knowledge-center/simple-resource-record-route53-cli/)
 
 ### iii) app-v1.json
-- [app-v1.json](./Templates/vpc.app-v1.json)
+- [app-v1.json](./Templates/app-v1.json)
 
 
 ### iii) app-v2.json
-- [app-v2.json](./Templates/vpc.app-v2.json)
+- [app-v2.json](./Templates/app-v2.json)
 
 ### iv)change to v1 by running the following command
 ```bash
