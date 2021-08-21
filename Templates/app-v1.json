@@ -1,5 +1,5 @@
 {
-    "Comment": "UPSERT CNAME record to tinmaralroo.io blue v1 app",
+    "Comment": "UPSERT CNAME record to mygentocloud.com blue v1 app",
     "Changes": [
         {
             "Action": "UPSERT",

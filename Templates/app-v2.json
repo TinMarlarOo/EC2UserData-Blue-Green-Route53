@@ -1,5 +1,5 @@
 {
-    "Comment": "UPSERT CNAME record to gritworks.io green v2 app",
+    "Comment": "UPSERT CNAME record to mygentocloud.com green v2 app",
     "Changes": [
         {
             "Action": "UPSERT",
